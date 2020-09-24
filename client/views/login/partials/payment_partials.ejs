@@ -1,0 +1,150 @@
+<section id="login-signup">
+    <div class="tab-content-parent tab-content">
+        <div id="student_form" class="form" style="display: block !important;">
+            
+            <div class="tab-content-student tab-content">
+                <div id="st-forget" style="display: inline !important;text-align: center;">
+                    <h1>Payment</h1>
+                    <h3>Case Statement</h3>
+                    <span class="agreement"
+                            style="text-align: left;"><b>Your client is a Spirits company which makes vodka. Of late, they have experienced a decline in
+profits.<br>Why is this happening?<br>What recommendations can you give to turn this around?</b><br>Difficulty : Intermediate<br><br>By clicking Pay, you will add this new case</span
+                        >
+                    <button id="rzp-button1" class="button button-block">Pay Rs. 35.00</button>
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                    <script>
+                    var x =<%- JSON.stringify(order) %>
+                    console.log(x);
+                    var options = {
+                        "key": "rzp_live_AFK6uU1jEYQCNY", // Enter the Key ID generated from the Dashboard
+                        "amount": "3500", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "currency": "INR",
+                        "name": "Consulting Bot",
+                        "description": "Get new case",
+                        "order_id": x.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                        "callback_url": "/success",
+                        "notes": {
+                            "address": "Extra Case"
+                        },
+                        "theme": {
+                            "color": "#870403"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    document.getElementById('rzp-button1').onclick = function(e){
+                        rzp1.open();
+                        e.preventDefault();
+                    }
+                    </script>
+                </div>
+                <div></div>
+            </div>
+            <!-- tab-content -->
+        <!-- </div>
+        <div id="company_form" class="form">
+            <ul class="tab-group">
+                <li class="tab cp-tab active">
+                    <a href="#cp-signup">Sign Up</a>
+                </li>
+                <li class="tab cp-tab"><a href="#cp-login">Log In</a></li>
+            </ul>
+            <div class="tab-content-company tab-content">
+                <div id="cp-signup">
+                    <h1>Sign Up</h1>
+                    <% // if(message.length>0) {%>
+                    <div class="alert alert-danger"><%= // message %></div>
+                    <% // } %>
+                    <form action="/signup1" method="post">
+                        <div class="top-row">
+                            <div class="field-wrap">
+                                <label>
+                                    Company Name<span class="req">*</span>
+                                </label>
+                                <input
+                                    name="company_name"
+                                    type="text"
+                                    required
+                                    autocomplete="off"
+                                />
+                            </div>
+       
+           <div class="field-wrap">
+             <label>
+               Last Name<span class="req">*</span>
+             </label>
+             <input type="text"required autocomplete="off"/>
+           </div>
+
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Email Address<span class="req">*</span>
+                            </label>
+                            <input
+                                name="email"
+                                type="email"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Set A Password<span class="req">*</span>
+                            </label>
+                            <input
+                                name="password"
+                                type="password"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <span class="agreement"
+                            >By clicking Join now, you agree to the User
+                            Agreement, Privacy Policy, and Cookie Policy.</span
+                        >
+                        <button type="submit" class="button button-block">
+                            Get Started
+                        </button>
+                    </form>
+                </div>
+
+                <div id="cp-login">
+                    <h1>Welcome Back!</h1>
+                    <% // if(message.length>0) {%>
+                    <div class="alert alert-danger"><%= //message %></div>
+                    <% // } %>
+                    <form action="/login" method="post">
+                        <div class="field-wrap">
+                            <label>
+                                Email Address<span class="req">*</span>
+                            </label>
+                            <input
+                                name="email"
+                                type="email"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label> Password<span class="req">*</span> </label>
+                            <input
+                                name="password"
+                                type="password"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+
+                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+                        <button class="button button-block">Log In</button>
+                    </form>
+                </div>
+            </div> -->
+            <!-- tab-content -->
+        </div>
+        <!-- form -->
+    </div>
+</section>

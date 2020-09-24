@@ -1,0 +1,115 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+<script src="../../scripts/bootstrap.js"></script>
+<script src="../../scripts/script.js"></script>
+<script src="../../scripts/login.js"></script>
+<script>
+    window.sr = ScrollReveal();
+    sr.reveal('.navbar', {
+        duration: 1000,
+        origin:'top'
+    });
+    sr.reveal('.hero-text',{
+        duration:1000,
+        viewFactor:0.1,
+        delay:1000,
+        origin:'left',
+        distance:'40px'
+    });
+    sr.reveal('.sub-text',{
+        duration:1000,
+        viewFactor:0.1,
+        origin:'left',
+        delay:1000,
+        distance:'40px'
+    });
+    sr.reveal('#about-header',{
+        duration:1000,
+        distance:'40px',
+        viewFactor:0.9
+    });
+    sr.reveal('#programs-header',{
+        duration:1000,
+        distance:'40px',
+        viewFactor:0.9
+    });
+    sr.reveal('.about-image',{
+        duration:1000,
+        origin:'left',
+        distance:'40px',
+        viewFactor:0.8
+    });
+//    sr.reveal('#s1',{
+//        duration:600,
+//        viewFactor:0.1,
+//        origin:'left',
+//        distance:'40px'
+//    });
+//    sr.reveal('#s2',{
+//        duration:600,
+//        viewFactor:0.1,
+//        delay:300,
+//        origin:'left',
+//        distance:'40px'
+//    });
+//    sr.reveal('#fd',{
+//        duration:600,
+//        viewFactor:0.1,
+//        delay:600,
+//        origin:'left',
+//        distance:'40px'
+//    });
+    sr.reveal('#programs_image',{
+        duration:1000,
+        viewFactor:0.1,
+        origin:'right',
+        distance:'1000px'
+    });
+    sr.reveal('.about-content',{
+        duration:1000,
+        viewFactor:0.1,
+        origin:'right',
+        distance:'1000px'
+    });
+    sr.reveal('#vision',{
+        duration:1000,
+        viewFactor:0.2,
+        delay:1000,
+        origin:'bottom',
+        distance:'30px'
+    });
+</script>
+<script>
+function otpshow(){
+   var formdata = {}
+
+    $.each($('#form-signup').serializeArray(), function(_, kv) {
+    formdata[kv.name] = kv.value;
+  });
+  $.post('/signup',formdata)
+  .done((data,status)=>{
+    console.log(data);  
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+        alert(jqXHR.responseJSON.message);
+           var otp = document.getElementById("otp");
+      // if(!(otp.style.display == "none"))
+    otp.style.display = "block";
+  })
+
+}
+
+
+$('a[href*="#"]:not([href="#"]):not(a[href="#carousel"]):not(a[href*="#st-login"]):not(a[href*="#cp-login"]):not(a[href*="#st-signup"]):not(a[href*="#cp-signup"]):not(a[href*="#student_form"]):not(a[href*="#company_form"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html,body').animate({
+                 scrollTop: target.offset().top
+            }, 600);
+            return false;
+        }
+    }
+});
+</script>

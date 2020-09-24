@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	
+  <%- include('../partials/_header.ejs') %>
+  <link rel="stylesheet" type="text/css" media="screen" href="/styles/chat3.css">
+</head>
+<body style="background:url('../../assets/images/carousel-1.jpg');background-size: 100% 100%;">
+	
+<!-- NavBar -->
+<%# include('../partials/_navbar1.ejs')%>
+
+<!-- login/signup section -->
+<style>
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+        overflow: hidden;
+        border: 3px solid yellow;
+    }
+</style>
+<section id="login-signup">
+  <div data-pop="pop-swirl" id="popup">
+        <span id="popupclose">&times;</span>
+        <div class="popupcontent">
+            <h1>Feedback Report</h1><br>
+            <div id="report">
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+<script>
+        
+ var x =<%- JSON.stringify(data) %>  ;
+ console.log(<%- JSON.stringify(message) %>  )
+ console.log(x);
+</script>
+
+    <div class="tab-content-parent tab-content">
+        <div id="student_form" class="form" style="display: block !important;">
+            
+            <div class="tab-content-student tab-content">
+                <div id="st-forget" style="display: inline !important;text-align: center;">
+                    <h1>My History</h1>
+                    <div id='allrepo'>
+                         <% if(message) {%>
+                            <div class="alert alert-danger"><%= message %></div>
+                          <% } %>
+                    </div>
+                   
+                    <script>
+                    
+                    </script>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <!-- form -->
+    </div>
+</section>
+ 
+ 
+ <!-- Footer   -->
+<%# include('../partials/_footer_content.ejs')%>
+  
+<%- include('../partials/_footer_script.ejs')%>
+</body>
+<script type="text/javascript" src='scripts/feed.js'></script>
+</html>
